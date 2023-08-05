@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:news_sample/constants/app_colors.dart';
 import 'package:news_sample/model/location.dart';
+import 'package:news_sample/utils/navigation_util.dart';
+import 'package:news_sample/view/screens/home_page.dart';
 // import 'package:palamur_news_app/pages/home_page.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -100,7 +102,7 @@ class _LocationsListState extends State<LocationsList> {
                           final String encodedData = LocationModel.encode(selectedLoc);
                           final prefs = await SharedPreferences.getInstance();
                           prefs.setString('selectedLocations', encodedData);
-                          // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()));
+                          NavigationUtil.navigateTo(HomePage());
                         },
                       ),),
                     ),
